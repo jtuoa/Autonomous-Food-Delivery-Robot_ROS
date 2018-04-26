@@ -62,9 +62,7 @@ This is the most challenging part of the project. Dynamic path planning describe
 #### Method 1: DWA_Local_Planner
 Using a map, the kinematics trajectory with the Dynamic Window Approach (DWA) is created by periodically performing a forward simulation from the robot's current state to predict what would happen if the sampled velocity were applied for a short time. Multiple trajectories are created. Each trajectory is evaluated based on a cost function:
 
-cost = path_distance_bias * (distance to path from the endpoint of the trajectory in meters) 
-+ goal_distance_bias * (distance to local goal from the endpoint of the trajectory in meters) 
-+ occdist_scale * maximum obstacle cost along the trajectory in obstacle cost)
+cost = path_distance_bias * (distance to path from the endpoint of the trajectory in meters) + goal_distance_bias * (distance to local goal from the endpoint of the trajectory in meters) + occdist_scale * maximum obstacle cost along the trajectory in obstacle cost)
 
 This determines the next steering command. 
 
