@@ -33,7 +33,8 @@ Motivated by the increase in productivity, where one robot can oversee multiple 
 *	Robot can play different music based on the feedback it receives.
 *	Robot can carry a maximum payload of 5 kg on hardwood floor, and 4 kg on carpet floor. 
 
-## Map of "restaurant" space
+## Project Modules
+### Map of "restaurant" space
 The CS north end floor space will simulate a restaurant space environment. The map will show the locations of the customer tables and charging station. 
 
 <div align="center">
@@ -41,7 +42,7 @@ The CS north end floor space will simulate a restaurant space environment. The m
 </div>
 
 
-## Android-ROS communication and robot navigation
+### Android-ROS communication and robot navigation
 Install Java, ROS-Java and Android Studio to setup the ROS-Android interface on the PC and generate the APK files. Some unexpected difficulties came up around installing the right versions to establish the Android-ROS communication, so follow the versions indicated in the dependencies above. The Android app will have two activities. It will ask the user to enter a table number and provide a feedback based on the service the user received. The table numbers are assigned as waypoints for the robot to travel to. Once the robot arrives at the waypoint, it waits for the customer feedback, and plays different music based on the feedback it receives.
 
 <div align="center">
@@ -50,8 +51,11 @@ Install Java, ROS-Java and Android Studio to setup the ROS-Android interface on 
 
 (VIDEO: android_ros_comm_travel)
 
-## Docking
+### Docking
 After the robot receives its feedback, it will travel back to its charging station, and accurately docks for battery charging. 
 
 (VIDEO: docking)
 
+### Dynamic path planning
+#### Method 1: DWA_Local_Planner
+#### Method 2: SBPL_Dynamic_Planner
