@@ -52,10 +52,20 @@ Install Java, ROS-Java and Android Studio to setup the ROS-Android interface on 
 (VIDEO: android_ros_comm_travel)
 
 ### Docking
-After the robot receives its feedback, it will travel back to its charging station, and accurately docks for battery charging. 
+After the robot receives its feedback, it will travel back to its charging station, and accurately dock for battery charging. 
 
 (VIDEO: docking)
 
 ### Dynamic path planning
+This is the most challenging part of the project. Dynamic path planning describes the robot's ability to perceive the environment, react rapidly to unforeseen obstacles, and re-plan dynamically in order to complete a task. Two methods with available ROS packages are studied and compared to determine the appropriate method to implement.
+
 #### Method 1: DWA_Local_Planner
+Using a map, the kinematics trajectory with the Dynamic Window Approach (DWA) is created by periodically performing a forward simulation from the robot's current state to predict what would happen if the sampled velocity were applied for a short time. Multiple trajectories are created. Each trajectory is evaluated based on a cost function:
+
+cost = path_distance_bias * (distance to path from the endpoint of the trajectory in meters) 
++ goal_distance_bias * (distance to local goal from the endpoint of the trajectory in meters) 
++ occdist_scale * maximum obstacle cost along the trajectory in obstacle cost)
+
+This determines the next steering command. 
+
 #### Method 2: SBPL_Dynamic_Planner
