@@ -36,12 +36,18 @@ Motivated by the increase in productivity, where one robot can oversee multiple 
 ## Map of "restaurant" space
 The CS north end floor space will simulate a restaurant space environment. The map will show the locations of the customer tables and charging station. 
 
-(IMG: CS North end marked with table #)
+<div align="center">
+  <img src ="img_src/map1.png" width ="200">
+</div>
+
 
 ## Android-ROS communication and robot navigation
 Install Java, ROS-Java and Android Studio to setup the ROS-Android interface on the PC and generate the APK files. Some unexpected difficulties came up around installing the right versions to establish the Android-ROS communication, so follow the versions indicated in the dependencies above.
 
-(IMG: android_ros_comm)
+<div align="center">
+  <img src ="img_src/anroid_ros_comm1.png" width ="200">
+</div>
+
 
 The Android app will have two activities. It will ask the user to enter a table number and provide a feedback based on the service the user received. The table numbers are assigned as waypoints for the robot to travel to. Once the robot arrives at the waypoint, it waits for the customer feedback, and plays different music based on the feedback it receives.
 
