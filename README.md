@@ -45,7 +45,7 @@ The CS north end floor space will simulate a restaurant space environment. The m
 Install Java, ROS-Java and Android Studio to setup the ROS-Android interface on the PC and generate the APK files. Some unexpected difficulties came up around installing the right versions to establish the Android-ROS communication, so follow the versions indicated in the dependencies above.
 
 <div align="center">
-  <img src ="img_src/anroid_ros_comm1.png" width ="200">
+  <img src ="img_src/android_ros_comm1.png" width ="200">
 </div>
 
 
