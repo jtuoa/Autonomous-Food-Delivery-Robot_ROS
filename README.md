@@ -52,7 +52,7 @@ Install Java, ROS-Java and Android Studio to setup the ROS-Android interface on 
 (VIDEO: android_ros_comm_travel)
 
 ### Docking
-After the robot receives its feedback, it will travel back to its charging station, and accurately dock for battery charging. 
+After the robot receives its feedback, it will travel back to its charging station, and accurately dock for battery charging. (Use if docking inaccurate: At the docking station is an AR tag. An AR tag is used to compensate any pose offset, since docking requires precise pose.)
 
 (VIDEO: docking)
 
@@ -67,6 +67,5 @@ objective = path_distance_bias * (distance to path from the endpoint of the traj
 The objective function incorporates the metrics of proximity to end goal, proximity to local goal, and proximity to obstacles. Also, the objective function shows the tradeoff between the robot's desire to move fast towards the end goal, and its desire to move around obstacles. The highest cost function (highest score) is picked to set the next steering command. Repeat these steps to re-calculate the next steering command.  
 
 To do: Modify velocity, rotation, forward simulation, trajectory parameters. Observe
-
 
 #### Method 2: SBPL_Dynamic_Planner
