@@ -41,7 +41,6 @@ The CS north end floor space will simulate a restaurant space environment. The m
   <img src ="img_src/map1.png" width ="200">
 </div>
 
-
 ### Android-ROS communication and robot navigation
 Install Java, ROS-Java and Android Studio to setup the ROS-Android interface on the PC and generate the APK files. Some unexpected difficulties came up around installing the right versions to establish the Android-ROS communication, so follow the versions indicated in the dependencies above. The Android app will have two activities. It will ask the user to enter a table number and provide a feedback based on the service the user received. The table numbers are assigned as waypoints for the robot to travel to. Once the robot arrives at the waypoint, it waits for the customer feedback, and plays different music based on the feedback it receives.
 
@@ -66,6 +65,19 @@ objective = path_distance_bias * (distance to path from the endpoint of the traj
 
 The objective function incorporates the metrics of proximity to end goal, proximity to local goal, and proximity to obstacles. Also, the objective function shows the tradeoff between the robot's desire to move fast towards the end goal, and its desire to move around obstacles. The highest cost function (highest score) is picked to set the next steering command. Repeat these steps to re-calculate the next steering command.  
 
-To do: Modify velocity, rotation, forward simulation, trajectory parameters. Observe
+The following parameters will be tuned to assess the performance of this algorithm: 
+* velocity (max_vel_x/max_trans_vel)
+* rotation(max_rot_vel)
+* acceleration(acc_lim_x)
+* forward simulation(sim_time/vx_samples/vtheta_samples)
+* trajectory scoring(path_distance_bias/goal_distance_bias/occdist_scale/forward_point_distance/scaling_speed/max_scaling_factor). 
+
+The performance of this algorithm is assessed based on comparison of the generated trajectory and path length when moving against different types of dynamic and static obstacles. The dynamic obstacle is where one obstacle (i.e.: robot) moves to obstruct the end-goal position. The three types of static obstacles are:
+* Case 1) No obstacle obstructing the end-goal position
+* Case 2) One obstacle obstructing the end-goal position
+* Case 3) Two obstacles in contact and obstructing the end-goal position
+* Case 4) Obstacles in contact forming a wall and obstructing the end-goal position
+
+In turtlebot_gazebo simulation.
 
 #### Method 2: SBPL_Dynamic_Planner
