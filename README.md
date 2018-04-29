@@ -78,6 +78,8 @@ The performance of this algorithm is assessed based on comparison of the generat
 * Case 3) Two obstacles in contact and obstructing the end-goal position
 * Case 4) Obstacles in contact forming a wall and obstructing the end-goal position
 
-In turtlebot_gazebo simulation.
+A simulation with turtlebot_in_stage simulator is performed in RVIZ. The generated global path trajectory is shown in green. The path length is calculated by subscribing to the pose topic. 
+
+
 
 #### Method 2: SBPL_Dynamic_Planner
