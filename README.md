@@ -65,21 +65,32 @@ objective = path_distance_bias * (distance to path from the endpoint of the traj
 
 The objective function incorporates the metrics of proximity to end goal, proximity to local goal, and proximity to obstacles. Also, the objective function shows the tradeoff between the robot's desire to move fast towards the end goal, and its desire to move around obstacles. The highest cost function (highest score) is picked to set the next steering command. Repeat these steps to re-calculate the next steering command.  
 
-The following parameters will be tuned to assess the performance of this algorithm: 
+The following parameters will be tuned to understand their effects on the performance of this algorithm: 
 * velocity (max_vel_x/max_trans_vel)
 * rotation(max_rot_vel)
 * acceleration(acc_lim_x)
 * forward simulation(sim_time/vx_samples/vtheta_samples)
 * trajectory scoring(path_distance_bias/goal_distance_bias/occdist_scale/forward_point_distance/scaling_speed/max_scaling_factor). 
 
-The performance of this algorithm is assessed based on comparison of the generated trajectory and path length when moving against different types of dynamic and static obstacles. The dynamic obstacle is where one obstacle (i.e.: robot) moves to obstruct the end-goal position. The three types of static obstacles are:
+The performance of this algorithm is assessed based on comparison of the generated trajectory and path length when moving against different types of dynamic and static obstacles. The dynamic obstacle is where one obstacle moves to interfere the end-goal position. The four types of static obstacles are:
 * Case 1) No obstacle obstructing the end-goal position
 * Case 2) One obstacle obstructing the end-goal position
 * Case 3) Two obstacles in contact and obstructing the end-goal position
 * Case 4) Obstacles in contact forming a wall and obstructing the end-goal position
 
-A simulation with turtlebot_in_stage simulator is performed in RVIZ. The generated global path trajectory is shown in green. The path length is calculated by subscribing to the pose topic. 
+A simulation with turtlebot_in_stage simulator is performed in RVIZ. The generated global path trajectory is shown in green. The path length is calculated by subscribing to the pose topic. The static obstacles are simulated by creating new maps using GIMP. The dynamic obstacle is added by entering a velocity attribute, as mentioned [here](http://playerstage.sourceforge.net/doc/stage-cvs/group__model.html).
 
+The parameters have been tuned ... (See table)
+
+(TABLE: parameters tuned)
+
+(VIDEO: before parameters tuned, default values)
+
+(VIDEO: after parametesr tuned)
 
 
 #### Method 2: SBPL_Dynamic_Planner
+
+## Acknowledgment
+* [Programming Robots with ROS](https://github.com/osrf/rosbook/blob/master)
+
