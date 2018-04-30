@@ -81,16 +81,19 @@ The performance of this algorithm is assessed based on comparison of the generat
 A simulation with turtlebot_in_stage simulator is performed in RVIZ. The generated global path trajectory is shown in green. The path length is calculated by subscribing to the pose topic. The static obstacles are simulated by creating new maps using GIMP. The dynamic obstacle is added by entering a velocity attribute, as mentioned [here](http://playerstage.sourceforge.net/doc/stage-cvs/group__model.html).
 
 The parameters have been tuned ... (See table)
+The path lengths for each case ... (See table)
 
-(TABLE: parameters tuned)
+(IMG TABLE: parameters tuned)
+
+(IMG TABLE: path lengths)
 
 (VIDEO: before parameters tuned, default values)
 
-(VIDEO: after parametesr tuned)
+(VIDEO: after parameters tuned)
 
 
 #### Method 2: SBPL_Dynamic_Planner
 
 ## Acknowledgment
-* [Programming Robots with ROS](https://github.com/osrf/rosbook/blob/master)
+* Programming Robots with ROS
 
