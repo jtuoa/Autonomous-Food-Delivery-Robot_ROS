@@ -60,6 +60,7 @@ Since this is a proof-of-concept food delivery system, one FPV transmitter and r
 </div>
 
 (VIDEO: recognize letters via FPV camera)
+
 (VIDEO: travel to waypoints)
 
 
@@ -69,7 +70,7 @@ After the robot receives its feedback, it will travel back to its charging stati
 (VIDEO: docking)
 
 ### Dynamic path planning
-This is the most challenging part of the project. Dynamic path planning describes the robot's ability to perceive the environment, react rapidly to unforeseen obstacles, and re-plan dynamically in order to complete a task. Two local methods (unlike global methods which have high computational complexity) with available ROS packages are studied and compared to determine the appropriate method to implement.
+Dynamic path planning describes the robot's ability to perceive the environment, react rapidly to unforeseen obstacles, and re-plan dynamically in order to complete a task. Two local methods (unlike global methods which have high computational complexity) with available ROS packages are studied and compared to determine the appropriate method to implement.
 
 #### Method 1: DWA_Local_Planner
 Using a map, the kinematics trajectory with the Dynamic Window Approach (DWA) is created by periodically performing a forward simulation from the robot's current state to predict what would happen if the sampled velocity were applied for a short time. Since the robot only considers the velocities that can be reached within the next short time frame, these velocities from the dynamic window. Hence the name DWA_Local_Planner. Furthermore, multiple trajectories are created. Each trajectory is evaluated based on an objective function:
@@ -113,4 +114,9 @@ Using a map, the kinematics trajectory of the dynamic object
 
 ## Acknowledgment
 * Programming Robots with ROS
+* [Eachine Tx05 Mini FPV Camera ](https://www.banggood.com/Eachine-TX05-0_0152550100250mW-Switchable-w-OSD-AIO-5_8G-72CH-VTX-600TVL-NTSC-Mini-FPV-Camera-p-1181013.html?cur_warehouse=USA)
+* [Eachine ROTG01 FPV Receiver](https://www.banggood.com/Eachine-ROTG01-UVC-OTG-5_8G-150CH-Full-Channel-FPV-Receiver-For-Android-Mobile-Phone-Smartphone-p-1147692.html?cur_warehouse=USA)
+* [The Dynamic Window Approach to Collision Avoidance](https://ieeexplore.ieee.org/document/580977/)
+* [A Comparison of Path Planning Algorithms for Omni-Directional Robots in Dynamic Environments](https://ieeexplore.ieee.org/document/4133821/)
+* [SIPP: Safe Interval Path Planning for Dynamic Environments] (https://ieeexplore.ieee.org/document/5980306/)
 
