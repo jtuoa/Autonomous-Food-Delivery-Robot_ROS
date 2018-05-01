@@ -93,6 +93,10 @@ The path lengths for each case ... (See table)
 
 
 #### Method 2: SBPL_Dynamic_Planner
+The DWA approach treats dynamic obstacles as static and constantly re-plans as dynamic obstacles moves. However, this often sacrifices path optimality and completeness. For example: the robot could have crossed but instead it just waited until the obstacle has passed; the robot takes a longer path around the obstacle. This is mainly because the DWA approach only considers a state-space of (x, y, theta). This can be overcomed by adding a time dimension to the state-space (x, y, theta, time_interval), to properly perform path planning dynamic environments. This is the basis of the SBPL approach. 
+
+Using a map, the kinematics trajectory of the dynamic object 
+
 
 ## Acknowledgment
 * Programming Robots with ROS
