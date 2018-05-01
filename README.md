@@ -50,16 +50,18 @@ The FPV transceiver consists of the Eachine Tx05 Mini FPV Camera and the Eachine
 *	Range 400 m
 
 <div align="center">
-  <img src ="img_src/fpv_hardware.png" width ="300">
+  <img src ="img_src/fpv_hardware.png" width ="600">
 </div>
 
 Since this is a proof-of-concept food delivery system, one FPV transmitter and receiver will be used, and the following images will be processed. Where T1, T2 and T3 indicate table numbers 1, 2 and 3, respectively. Where Happy Birthday indicates it’s a customer’s birthday. Then by entering T1, T2 and T3, the robot will head to the corresponding table, since the table numbers are assigned as waypoints for the robot to travel to. Furthermore, by entering Happy Birthday T1 (or T2, T3), the robot will head to the corresponding table and sing happy birthday. 
 
 <div align="center">
-  <img src ="img_src/training_char1.png" width ="300">   <img src ="img_src/training_char2.png" width ="300">
+  <img src ="img_src/training_char1.png" width ="200">   <img src ="img_src/training_char2.png" width ="500">
 </div>
 
-(VIDEO: android_ros_comm_travel)
+(VIDEO: recognize letters via FPV camera)
+(VIDEO: travel to waypoints)
+
 
 ### Docking
 After the robot receives its feedback, it will travel back to its charging station, and accurately dock for battery charging. (Use if docking inaccurate: At the docking station is an AR tag. An AR tag is used to compensate any pose offset, since docking requires precise pose.)
