@@ -56,7 +56,7 @@ The FPV transceiver consists of the Eachine Tx05 Mini FPV Camera and the Eachine
 Since this is a proof-of-concept food delivery system, one FPV transmitter and receiver will be used, and the following images will be processed. Where T1, T2 and T3 indicate table numbers 1, 2 and 3, respectively. Where Happy Birthday indicates it’s a customer’s birthday. Then by entering T1, T2 and T3, the robot will head to the corresponding table, since the table numbers are assigned as waypoints for the robot to travel to. Furthermore, by entering Happy Birthday T1 (or T2, T3), the robot will head to the corresponding table and sing happy birthday. 
 
 <div align="center">
-  <img src ="img_src/training_char1.png" width ="250">   <img src ="img_src/training_char2.png" width ="400">
+  <img src ="img_src/training_char0.png" width ="300">
 </div>
 
 (VIDEO: recognize letters via FPV camera)
