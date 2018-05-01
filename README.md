@@ -2,7 +2,7 @@
 The project is done at University of Alberta (UoA) for the course CMPUT 412: Experimental Robotics.
 
 ## Overview
-In this project, an autonomous food delivery robot capable of delivering customer orders entered from an Android phone app will be created. After completion of the food delivery, the robot waits for the customer feedback. After the robot receives the customer feedback, the robot will respond by playing a music based on the feedback it receives. Then the robot returns to its charging station. The food delivery robot is capable of navigating a cluttered restaurant space environment by dynamically re-planning a path from charging station to customer table and back, while avoiding obstacles in the process.
+In this project, an autonomous food delivery robot capable of delivering customer orders through an FPV camera transceiver setup will be created. Alternatively, an Android phone app can be designed for customers to enter the orders. This was the initial approach, but due to the lack of documentation on the integration of ROS and Android, and the time constraint on this project, instead the FPV camera approach is implemented. Nevertheless, the documentation on the installation of ROS and Android can be found in the repository here. After completion of the food delivery, the robot returns to its charging station. The food delivery robot is capable of navigating a cluttered restaurant space environment by dynamically re-planning a path from charging station to customer table and back, while avoiding obstacles in the process.
 
 ## Dependencies
 Project is tested on the following environment.
@@ -11,9 +11,6 @@ Project is tested on the following environment.
 * ROS Indigo
 * Numpy
 * OpenCV-Python 2.4.8
-* Java 8
-* ROS-Java GradleVersion 2.2.1
-* Android Studio 3.0.1
 
 
 ## Background and Motivation
@@ -23,11 +20,12 @@ Motivated by the increase in productivity, where one robot can oversee multiple 
 
 ## Goals
 1. Develop a proof-of-concept food delivery system capable of delivering orders to customers.
-2. Create an Android app to transmit and receive data from ROS.
+2. Setup the FPV Camera transceiver to remotely transmit, receive and recognize images from ROS. 
 3. Use a map for autonomous collision free navigation to travel between two locations on the map.
 
 ## Specifications
-*	Robot must be able to communicate to and from the Android phone app.  
+*	Robot must be able to communicate to and from Laptop using the FPV camera transceiver.   
+* Robot must be able to detect and process images obtained from the FPV camera transceiver.  
 *	Robot can navigate from its charging station, to the customer specified table area, and back to the charging station. 
 *	Robot can dynamically re-plan its path when it detects new obstacles in the map. 
 *	Robot can play different music based on the feedback it receives.
@@ -41,11 +39,24 @@ The CS north end floor space will simulate a restaurant space environment. The m
   <img src ="img_src/map1.png" width ="200">
 </div>
 
-### Android-ROS communication and robot navigation
-Install Java, ROS-Java and Android Studio to setup the ROS-Android interface on the PC and generate the APK files. Some unexpected difficulties came up around installing the right versions to establish the Android-ROS communication, so follow the versions indicated in the dependencies above. The Android app will have two activities. It will ask the user to enter a table number and provide a feedback based on the service the user received. The table numbers are assigned as waypoints for the robot to travel to. Once the robot arrives at the waypoint, it waits for the customer feedback, and plays different music based on the feedback it receives.
+### FPV-ROS communication and robot navigation
+A First-Person View (FPV) camera is used to remotely transmit images to and from ROS. Alternatively, an IP camera or any wireless camera can be used, the FPV camera is used here because it was the available hardware. Ideally, an FPV camera will be placed at each customer table, the customer will enter the order, place the order in-front of the FPV camera for image transmission, and the robot will process the transmitted image to recognize the order. With this approach, it can provide convenience for the customers as it does not require a smart-phone nor the need to download an app. 
+
+The FPV transceiver consists of the Eachine Tx05 Mini FPV Camera and the Eachine ROTG01 FPV Receiver. Some important specifications for the transceiver are:
+
+*	Operating voltage: 3.3 – 5.5 V 
+*	Operating current: 150 mA – 800 mA  
+*	Frequency: 5.8 GHz, 300 MHz of bandwidth
+*	Range 400 m
 
 <div align="center">
-  <img src ="img_src/android_ros_comm1.png" width ="600">
+  <img src ="img_src/fpv_hardware.png" width ="300">
+</div>
+
+Since this is a proof-of-concept food delivery system, one FPV transmitter and receiver will be used, and the following images will be processed. Where T1, T2 and T3 indicate table numbers 1, 2 and 3, respectively. Where Happy Birthday indicates it’s a customer’s birthday. Then by entering T1, T2 and T3, the robot will head to the corresponding table, since the table numbers are assigned as waypoints for the robot to travel to. Furthermore, by entering Happy Birthday T1 (or T2, T3), the robot will head to the corresponding table and sing happy birthday. 
+
+<div align="center">
+  <img src ="img_src/training_char1.png" width ="300">   <img src ="img_src/training_char2.png" width ="300">
 </div>
 
 (VIDEO: android_ros_comm_travel)
