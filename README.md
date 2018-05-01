@@ -116,6 +116,7 @@ Using a map, the kinematics trajectory of the dynamic object
 * Programming Robots with ROS
 * [Eachine Tx05 Mini FPV Camera ](https://www.banggood.com/Eachine-TX05-0_0152550100250mW-Switchable-w-OSD-AIO-5_8G-72CH-VTX-600TVL-NTSC-Mini-FPV-Camera-p-1181013.html?cur_warehouse=USA)
 * [Eachine ROTG01 FPV Receiver](https://www.banggood.com/Eachine-ROTG01-UVC-OTG-5_8G-150CH-Full-Channel-FPV-Receiver-For-Android-Mobile-Phone-Smartphone-p-1147692.html?cur_warehouse=USA)
+* [KNN Character Recognition](https://github.com/MicrocontrollersAndMore/OpenCV_3_KNN_Character_Recognition_Python)
 * [The Dynamic Window Approach to Collision Avoidance](https://ieeexplore.ieee.org/document/580977/)
 * [A Comparison of Path Planning Algorithms for Omni-Directional Robots in Dynamic Environments](https://ieeexplore.ieee.org/document/4133821/)
 * [SIPP: Safe Interval Path Planning for Dynamic Environments] (https://ieeexplore.ieee.org/document/5980306/)
