@@ -119,5 +119,5 @@ Using a map, the kinematics trajectory of the dynamic object
 * [KNN Character Recognition](https://github.com/MicrocontrollersAndMore/OpenCV_3_KNN_Character_Recognition_Python)
 * [The Dynamic Window Approach to Collision Avoidance](https://ieeexplore.ieee.org/document/580977/)
 * [A Comparison of Path Planning Algorithms for Omni-Directional Robots in Dynamic Environments](https://ieeexplore.ieee.org/document/4133821/)
-* [SIPP: Safe Interval Path Planning for Dynamic Environments] (https://ieeexplore.ieee.org/document/5980306/)
+* [SIPP: Safe Interval Path Planning for Dynamic Environments](https://ieeexplore.ieee.org/document/5980306/)
 
