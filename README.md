@@ -42,6 +42,7 @@ The CS north end floor space will simulate a restaurant space environment. The m
 ### FPV-ROS communication and robot navigation
 A First-Person View (FPV) camera is used to remotely transmit images to and from ROS. Alternatively, an IP camera or any wireless camera can be used, the FPV camera is used here because it was the available hardware. Ideally, an FPV camera will be placed at each customer table, the customer will enter the order, place the order in-front of the FPV camera for image transmission, and the robot will process the transmitted image to recognize the order. With this approach, it can provide convenience for the customers as it does not require a smart-phone nor the need to download an app. 
 
+#### FPV Hardware
 The FPV transceiver consists of the Eachine Tx05 Mini FPV Camera and the Eachine ROTG01 FPV Receiver. Some important specifications for the transceiver are:
 
 *	Operating voltage: 3.3 – 5.5 V 
@@ -53,16 +54,16 @@ The FPV transceiver consists of the Eachine Tx05 Mini FPV Camera and the Eachine
   <img src ="img_src/fpv_hardware.png" width ="500">
 </div>
 
+#### Character recognition
+The character recognition is performed with the KNN (K-Nearest Neighbor) algorithm, which is part of the supervised learning algorithms that can be applied to applications such as: data mining, statistical pattern recognition and image processing. The KNN algorithm here for character recognition is carried out in two steps:
+Step 1: Generate the data set, with different font types, in a format readable by python.
+Step 2: Train the program with the dataset generated from step 1.
+
 Since this is a proof-of-concept food delivery system, one FPV transmitter and receiver will be used, and the following images will be processed for character recognition. Where T1, T2 and T3 indicate table numbers 1, 2 and 3, respectively. Where Happy Birthday indicates it’s a customer’s birthday. Then by entering T1, T2 and T3, the robot will head to the corresponding table, since the table numbers are assigned as waypoints for the robot to travel to. Furthermore, by entering Happy Birthday T1 (or T2, T3), the robot will head to the corresponding table and sing happy birthday. 
 
 <div align="center">
   <img src ="img_src/training_char.png" width ="500">
 </div>
-
-#### Character recognition
-The character recognition is performed with the KNN (K-Nearest Neighbor) algorithm, which is part of the supervised learning algorithms that can be applied to applications such as: data mining, statistical pattern recognition and image processing. The KNN algorithm here for character recognition is carried out in two steps:
-Step 1: Generate the data set, with different font types, in a format readable by python.
-Step 2: Train the program with the dataset generated from step 1.
 
 (VIDEO: recognize letters via FPV camera)
 
