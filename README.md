@@ -65,9 +65,11 @@ Since this is a proof-of-concept food delivery system, one FPV transmitter and r
   <img src ="img_src/training_char.png" width ="500">
 </div>
 
+
 <div align="center">
   <a href="https://www.youtube.com/watch?v=sRaQAqGH1SI"><img src="https://img.youtube.com/vi/sRaQAqGH1SI/0.jpg" alt="IMAGE ALT TEXT"></a>
 </div>
+
 
 
 (VIDEO: travel to waypoints)
