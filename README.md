@@ -81,9 +81,11 @@ After the robot receives its feedback, it will travel back to its charging stati
 (VIDEO: docking)
 
 ### Dynamic path planning
-Dynamic path planning describes the robot's ability to perceive the environment, react rapidly to unforeseen obstacles, and re-plan dynamically in order to complete a task. Two local methods (unlike global methods which have high computational complexity) with available ROS packages are studied and compared to determine the appropriate method to implement.
+Dynamic path planning describes the robot's ability to perceive the environment, react rapidly to unforeseen obstacles, and re-plan dynamically in order to complete a task. The former is usually referred to as local path planning while the latter is often referred to as global path planning. The navfn/SBPL global planners and DWA local planner are studied and compared to determine the appropriate method to implement. 
 
-#### Method 1: DWA_Local_Planner
+#### Method 1: NAVFN_Global_Planner and DWA_Local_Planner
+The navfn global path planner trajectory is computed based on the Dijkstra algorithm, with more explanation [here](http://wiki.ros.org/navfn).
+
 Using a map, the kinematics trajectory with the Dynamic Window Approach (DWA) is created by periodically performing a forward simulation from the robot's current state to predict what would happen if the sampled velocity were applied for a short time. Since the robot only considers the velocities that can be reached within the next short time frame, these velocities from the dynamic window. Hence the name DWA_Local_Planner. Furthermore, multiple trajectories are created. Each trajectory is evaluated based on an objective function:
 
 objective = path_distance_bias * (distance to path from the endpoint of the trajectory in meters) + goal_distance_bias * (distance to local goal from the endpoint of the trajectory in meters) + occdist_scale * (maximum obstacle cost along the trajectory in obstacle cost)
@@ -121,7 +123,7 @@ The forward simulation parameters are tuned first. It is observed that an increa
 </div>
 
 
-#### Method 2: SBPL_Dynamic_Planner
+#### Method 2: DWA_Local_Planner and SBPL_Global_Planner
 The DWA approach treats dynamic obstacles as static and constantly re-plans as dynamic obstacles moves. However, this often sacrifices path optimality and completeness. For example: the robot could have crossed but instead it just waited until the obstacle has passed; the robot takes a longer path around the obstacle. This is mainly because the DWA approach only considers a state-space of (x, y, theta). This can be overcomed by adding a time dimension to the state-space (x, y, theta, time_interval), to properly perform path planning dynamic environments. This is the basis of the SBPL approach. 
 
 Using a map, the kinematics trajectory of the dynamic object 
