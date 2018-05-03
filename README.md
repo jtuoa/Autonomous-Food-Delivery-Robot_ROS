@@ -112,7 +112,9 @@ The forward simulation parameters are tuned first. It is observed that an increa
   <img src ="img_src/Table_TunedResults.PNG" width ="400">
 </div>
 
-(VIDEO: before parameters tuned, default values)
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=LGjvdUReWsc"><img src="https://img.youtube.com/vi/LGjvdUReWsc/0.jpg" alt="IMAGE ALT TEXT"></a>
+</div>
 
 (VIDEO: after parameters tuned)
 
