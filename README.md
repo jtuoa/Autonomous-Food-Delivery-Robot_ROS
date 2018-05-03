@@ -105,11 +105,11 @@ A simulation with turtlebot_in_stage simulator is performed in RVIZ. The generat
 The forward simulation parameters are tuned first. It is observed that an increase in sim_time results in a decrease in path length and an increase in path accuracy as the turtlebot does not fluctuate over the map in search for the correct path. It is observed that an increase in the vx_samples and vth_samples does not have significant affect on the path length. The trajectory scoring parameters are tuned next. It is observed that an increase in path_distance_bias results in a decrease in path length as the robot stays closer to its global path. It is observed that the goal_distance_bias at 24.0 yields a low path length, any value higher or lower results in a longer path length. It is observed that a decrease in occdist_scale can result in the robot getting stuck by an obstacle as it is allowed to be very close to the obstacle, while an increase in occdist_scale can result in a longer path as the robot stays far away from the obstacle. It is observed that a decrease in forward_point_distance results in an increase in simulation time as the robot continuously checks the score to the global goal. The final tuned values and resulting path lengths from simulation are illustrated in the following tables.    
 
 <div align="center">
-  <img src ="img_src/Table_TunedValues.png" width ="500">
+  <img src ="img_src/Table_TunedValues.PNG" width ="500">
 </div>
 
 <div align="center">
-  <img src ="img_src/Table_TunedResults.png" width ="500">
+  <img src ="img_src/Table_TunedResults.PNG" width ="500">
 </div>
 
 (VIDEO: before parameters tuned, default values)
