@@ -91,11 +91,8 @@ objective = path_distance_bias * (distance to path from the endpoint of the traj
 The objective function incorporates the metrics of proximity to end goal, proximity to local goal, and proximity to obstacles. Also, the objective function shows the tradeoff between the robot's desire to move fast towards the end goal, and its desire to move around obstacles. The highest cost function (highest score) is picked to set the next steering command. Repeat these steps to re-calculate the next steering command.  
 
 The following parameters will be tuned to understand their effects on the performance of this algorithm: 
-* velocity (max_vel_x/max_trans_vel)
-* rotation(max_rot_vel)
-* acceleration(acc_lim_x)
-* forward simulation(sim_time/vx_samples/vtheta_samples)
-* trajectory scoring(path_distance_bias/goal_distance_bias/occdist_scale/forward_point_distance/scaling_speed/max_scaling_factor). 
+* forward simulation(sim_time/vx_samples/vth_samples)
+* trajectory scoring(path_distance_bias/goal_distance_bias/occdist_scale/forward_point_distance). 
 
 The performance of this algorithm is assessed based on comparison of the generated trajectory and path length when moving against different types of dynamic and static obstacles. The dynamic obstacle is where one obstacle moves to interfere the end-goal position. The four types of static obstacles are:
 * Case 1) No obstacle obstructing the end-goal position
@@ -103,14 +100,17 @@ The performance of this algorithm is assessed based on comparison of the generat
 * Case 3) Two obstacles in contact and obstructing the end-goal position
 * Case 4) Obstacles in contact forming a wall and obstructing the end-goal position
 
-A simulation with turtlebot_in_stage simulator is performed in RVIZ. The generated global path trajectory is shown in green. The path length is calculated by subscribing to the pose topic. The static obstacles are simulated by creating new maps using GIMP. The dynamic obstacle is added by entering a velocity attribute, as mentioned [here](http://playerstage.sourceforge.net/doc/stage-cvs/group__model.html).
+A simulation with turtlebot_in_stage simulator is performed in RVIZ. The generated global path trajectory is shown in green. The path length is calculated by subscribing to the pose topic. The static obstacles are simulated by creating new maps using GIMP. The dynamic obstacle is added by entering a velocity attribute, as mentioned [here](http://playerstage.sourceforge.net/doc/stage-cvs/group__model.html). The dynamic obstacle properties are: pose(5.0 2.0 0.0 0.0), velocity(2.0 0.0 0.0), size(1.0 1.0 1.5). 
 
-The parameters have been tuned ... (See table)
-The path lengths for each case ... (See table)
+The forward simulation parameters are tuned first. It is observed that an increase in sim_time results in a decrease in path length and an increase in path accuracy as the turtlebot does not fluctuate over the map in search for the correct path. It is observed that an increase in the vx_samples and vth_samples does not have significant affect on the path length. The trajectory scoring parameters are tuned next. It is observed that an increase in path_distance_bias results in a decrease in path length as the robot stays closer to its global path. It is observed that the goal_distance_bias at 24.0 yields a low path length, any value higher or lower results in a longer path length. It is observed that a decrease in occdist_scale can result in the robot getting stuck by an obstacle as it is allowed to be very close to the obstacle, while an increase in occdist_scale can result in a longer path as the robot stays far away from the obstacle. It is observed that a decrease in forward_point_distance results in an increase in simulation time as the robot continuously checks the score to the global goal. The final tuned values and resulting path lengths from simulation are illustrated in the following tables.    
 
-(IMG TABLE: parameters tuned)
+<div align="center">
+  <img src ="img_src/Table_TunedValues.png" width ="500">
+</div>
 
-(IMG TABLE: path lengths)
+<div align="center">
+  <img src ="img_src/Table_TunedResults.png" width ="500">
+</div>
 
 (VIDEO: before parameters tuned, default values)
 
