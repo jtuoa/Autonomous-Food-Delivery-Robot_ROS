@@ -116,7 +116,9 @@ The forward simulation parameters are tuned first. It is observed that an increa
   <a href="https://www.youtube.com/watch?v=LGjvdUReWsc"><img src="https://img.youtube.com/vi/LGjvdUReWsc/0.jpg" alt="IMAGE ALT TEXT"></a>
 </div>
 
-(VIDEO: after parameters tuned)
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=8GYKUG_Zfuk"><img src="https://img.youtube.com/vi/8GYKUG_Zfuk/0.jpg" alt="IMAGE ALT TEXT"></a>
+</div>
 
 
 #### Method 2: SBPL_Dynamic_Planner
