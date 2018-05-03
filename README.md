@@ -127,7 +127,7 @@ The forward simulation parameters are tuned first. It is observed that an increa
 The Global Planner is a refactoring of the Navfn package. The Global planner is based on the A* algorithm that calculates and uses the minimal Manhattan distance to find the global path. The Navfn planner is based on the Dijkstra's algorithm that calculates and uses the minimal Eucliedan distance to find the global path. According to [here](https://answers.ros.org/question/28366/why-navfn-is-using-dijkstra/) and [here](http://sbpl.net/node/50), the A* algortihm usually has a better performance in terms of computational time and cost than Dijkstra due to its ability to use heruistics. However, A* can result in less-optimal paths. The path length results are shown below. Overall, the navfn performs better in a cluttered environment, thus will be used.      
 
 <div align="center">
-  <img src ="img_src/Table_TunedResults2.PNG" width ="600">
+  <img src ="img_src/Table_TunedResults2.PNG" width ="400">
 </div>
 
 To use global_planner, do the following in move_base:
