@@ -137,6 +137,8 @@ When the robot recognizes the characters transmitted via FPV camera, it will act
 
 Discuss the possible changes to the DWA values that differ than simulation
 
+(TABLE: Record distances for all cases)
+
 (VIDEO: FPV + Path travel to all wp)
 
 (VIDEO: FPV + Path travel to 1 wp + all scenarios)
