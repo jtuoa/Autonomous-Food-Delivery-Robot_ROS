@@ -81,10 +81,10 @@ After the robot receives its feedback, it will travel back to its charging stati
 (VIDEO: docking)
 
 ### Dynamic path planning
-Dynamic path planning describes the robot's ability to perceive the environment, react rapidly to unforeseen obstacles, and re-plan dynamically in order to complete a task. The former is usually referred to as local path planning while the latter is often referred to as global path planning. The navfn/SBPL global planners and DWA local planner are studied and compared to determine the appropriate method to implement. 
+Dynamic path planning describes the robot's ability to perceive the environment, react rapidly to unforeseen obstacles, and re-plan dynamically in order to complete a task. The former is usually referred to as local path planning while the latter is often referred to as global path planning. The Navfn/Global global planners and DWA local planner are studied and compared to determine the appropriate method to implement. 
 
 #### Method 1: NAVFN_Global_Planner and DWA_Local_Planner
-The navfn global path planner trajectory is computed based on the Dijkstra algorithm, with more explanation [here](http://wiki.ros.org/navfn).
+The navfn global path planner trajectory is computed based on the Dijkstra algorithm.
 
 Using a map, the kinematics trajectory with the Dynamic Window Approach (DWA) is created by periodically performing a forward simulation from the robot's current state to predict what would happen if the sampled velocity were applied for a short time. Since the robot only considers the velocities that can be reached within the next short time frame, these velocities from the dynamic window. Hence the name DWA_Local_Planner. Furthermore, multiple trajectories are created. Each trajectory is evaluated based on an objective function:
 
@@ -123,11 +123,24 @@ The forward simulation parameters are tuned first. It is observed that an increa
 </div>
 
 
-#### Method 2: DWA_Local_Planner and SBPL_Global_Planner
-The DWA approach treats dynamic obstacles as static and constantly re-plans as dynamic obstacles moves. However, this often sacrifices path optimality and completeness. For example: the robot could have crossed but instead it just waited until the obstacle has passed; the robot takes a longer path around the obstacle. This is mainly because the DWA approach only considers a state-space of (x, y, theta). This can be overcomed by adding a time dimension to the state-space (x, y, theta, time_interval), to properly perform path planning dynamic environments. This is the basis of the SBPL approach. 
+#### Method 2: Global_Planner and DWA_Local_Planner
+The Global Planner is a refactoring of the Navfn package. The Global planner is based on the A* algorithm that calculates and uses the minimal Manhattan distance to find the global path. The Navfn planner is based on the Dijkstra's algorithm that calculates and uses the minimal Eucliedan distance to find the global path. According to [here](https://answers.ros.org/question/28366/why-navfn-is-using-dijkstra/) and [here](http://sbpl.net/node/50), the A* algortihm usually has a better performance in terms of computational time and cost than Dijkstra due to its ability to use heruistics. However, A* can result in less-optimal paths. The path length results are shown below. Overall, the navfn performs better in a cluttered environment, thus will be used.      
 
-Using a map, the kinematics trajectory of the dynamic object 
+<div align="center">
+  <img src ="img_src/Table_TunedResults2.PNG" width ="600">
+</div>
 
+To use global_planner, do the following in move_base:
+```
+<nodepkg="move_base" type="move_base" respawn="false"name="move_base" output="screen">
+
+ <param name="base_global_planner"value="global_planner/GlobalPlanner"/>
+```
+
+## Performance Video and Discussion
+Discuss the possible changes to the DWA values that differ than simulation
+
+(VIDEO: FPV + Path travel)
 
 ## Acknowledgment
 * Programming Robots with ROS
@@ -136,5 +149,5 @@ Using a map, the kinematics trajectory of the dynamic object
 * [KNN Character Recognition](https://github.com/MicrocontrollersAndMore/OpenCV_3_KNN_Character_Recognition_Python)
 * [The Dynamic Window Approach to Collision Avoidance](https://ieeexplore.ieee.org/document/580977/)
 * [A Comparison of Path Planning Algorithms for Omni-Directional Robots in Dynamic Environments](https://ieeexplore.ieee.org/document/4133821/)
-* [SIPP: Safe Interval Path Planning for Dynamic Environments](https://ieeexplore.ieee.org/document/5980306/)
+
 
