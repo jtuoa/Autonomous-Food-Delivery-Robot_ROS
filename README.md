@@ -59,7 +59,7 @@ The FPV transceiver consists of the Eachine Tx05 Mini FPV Camera and the Eachine
 #### Character recognition
 The character recognition is performed with the KNN (K-Nearest Neighbor) algorithm, which is part of the supervised learning algorithms that can be applied to applications such as: data mining, statistical pattern recognition and image processing. The KNN algorithm here for character recognition is carried out in two steps. Step 1: Generate the data set, with different font types, in a format readable by python. Step 2: Train the program with the dataset generated from step 1.
 
-Since this is a proof-of-concept food delivery system, one FPV transmitter and receiver will be used, and the following images will be processed for character recognition. Where T1, T2 and T3 indicate table numbers 1, 2 and 3, respectively. Where Happy Birthday indicates it’s a customer’s birthday. Then by entering T1, T2 and T3, the robot will head to the corresponding table, since the table numbers are assigned as waypoints for the robot to travel to. Furthermore, by entering B1 (or B2, B3), the robot will head to the corresponding table while playing a happy birthday song. 
+Since this is a proof-of-concept food delivery system, one FPV transmitter and receiver will be used, and the following images will be processed for character recognition. Where T1, T2 and T3 indicate table numbers 1, 2 and 3, respectively. Where Happy Birthday indicates it’s a customer’s birthday. Then by entering T1, T2 and T3, the robot will head to the corresponding table, since the table numbers are assigned as waypoints for the robot to travel to. Furthermore, by entering B1 (or B2, B3), the robot will head to the corresponding table then play a happy birthday song. 
 
 <div align="center">
   <img src ="img_src/training_char.png" width ="500">
@@ -128,7 +128,7 @@ To use global_planner, do the following in move_base:
 ```
 
 ## Performance Video and Discussion
-When the robot recognizes the characters transmitted via FPV camera, it will act accordingly by either travelling to the corresponding waypoint or play a happy birthday song while it is travelling to the corresponding waypoint, and then back to its charging station. The robot will accurately dock for battery charging. Furthermore, based on the simulation results the navfn global path planner will be used with the dwa local path planner, along with the tuned parameters for dynamic path planning. The following scenarios will be tested:
+When the robot recognizes the characters transmitted via FPV camera, it will act accordingly by either travelling to the corresponding waypoint or play a happy birthday song after travelling to the corresponding waypoint, and then back to its charging station. The robot will accurately dock for battery charging. Furthermore, based on the simulation results the navfn global path planner will be used with the dwa local path planner, along with the tuned parameters for dynamic path planning. The following scenarios will be tested:
 
 * No obstacle obstructing the end-goal position
 * One obstacle obstructing the end-goal position
