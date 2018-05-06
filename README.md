@@ -2,7 +2,7 @@
 The project is done at University of Alberta (UoA) for the course CMPUT 412: Experimental Robotics.
 
 ## Overview
-In this project, an autonomous food delivery robot capable of delivering customer orders through an FPV camera transceiver setup will be created. Alternatively, an Android phone app can be designed for customers to enter the orders. This was the initial approach, but due to the lack of documentation on the integration of ROS and Android, and the time constraint on this project, instead the FPV camera approach is implemented. After completion of the food delivery, the robot returns to its charging station. The food delivery robot is capable of navigating a cluttered restaurant space environment by dynamically re-planning a path from charging station to customer table and back, while avoiding obstacles in the process.
+In this project, an autonomous food delivery robot capable of delivering customer orders through an FPV camera transceiver setup will be created. Alternatively, an Android phone app can be designed for customers to enter the orders. This was the initial approach, but due to the lack of documentation on the integration of ROS and Android, and the time constraint on this project, instead the FPV camera approach is implemented. After completion of the food delivery, the robot returns to its home location. The food delivery robot is capable of navigating a cluttered restaurant space environment by dynamically re-planning a path from home location to customer table and back, while avoiding obstacles in the process.
 
 ## Dependencies
 Project is tested on the following environment.
@@ -26,14 +26,14 @@ Motivated by the increase in productivity, where one robot can oversee multiple 
 ## Specifications
 *	Robot must be able to communicate to and from Laptop using the FPV camera transceiver.   
 * Robot must be able to detect and process images obtained from the FPV camera transceiver.  
-*	Robot can navigate from its charging station, to the customer specified table area, and back to the charging station. 
+*	Robot can navigate from its home location, to the customer specified table area, and back to the home location. 
 *	Robot can dynamically re-plan its path when it detects new obstacles in the map. 
 *	Robot can play different music based on the feedback it receives.
 *	Robot can carry a maximum payload of 5 kg on hardwood floor, and 4 kg on carpet floor. 
 
 ## Project Modules
 ### Map of "restaurant" space
-The CS north end floor space will simulate a restaurant space environment. The map will show the locations of the customer tables and charging station. 
+The CS north end floor space will simulate a restaurant space environment. The map will show the locations of the customer tables and home location. 
 
 <div align="center">
   <img src ="img_src/map1.png" width ="200">
@@ -127,21 +127,30 @@ To use global_planner, do the following in move_base:
  <param name="base_global_planner"value="global_planner/GlobalPlanner"/>
 ```
 
-## Performance Video and Discussion
-When the robot recognizes the characters transmitted via FPV camera, it will act accordingly by either travelling to the corresponding waypoint or play a happy birthday song after travelling to the corresponding waypoint, and then back to its charging station. The robot will accurately dock for battery charging. Furthermore, based on the simulation results the navfn global path planner will be used with the dwa local path planner, along with the tuned parameters for dynamic path planning. The following scenarios will be tested:
+## Performance Video
+When the robot recognizes the characters transmitted via FPV camera, it will act accordingly by either travelling to the corresponding waypoint or play a happy birthday song after travelling to the corresponding waypoint, and then back to its home location. Furthermore, based on the simulation results the navfn global path planner will be used with the dwa local path planner, along with the tuned parameters for dynamic path planning. The following scenarios will be tested:
 
 * No obstacle obstructing the end-goal position
-* One obstacle obstructing the end-goal position
-* Two obstacles in contact and obstructing the end-goal position
-* Obstacles in contact forming a wall and obstructing the end-goal position
+* One obstacle at different locations obstructing the end-goal position
+* Moving obstacle obstructing the end-goal position
 
-Discuss the possible changes to the DWA values that differ than simulation
+### Video 1: Real time character recognition with view angle 1
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=jXstzUVtUa0"><img src="https://img.youtube.com/vi/jXstzUVtUa0/0.jpg" alt="IMAGE ALT TEXT"></a>
+</div>
 
-(TABLE: Record distances for all cases)
+### Video 2: Real time character recognition with view angle 2
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=Sat9whLExqo"><img src="https://img.youtube.com/vi/Sat9whLExqo/0.jpg" alt="IMAGE ALT TEXT"></a>
+</div>
 
-(VIDEO: FPV + Path travel to all wp)
+### Video 3: Real time character recognition with moving obstacle
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=VPVe31jVV-E"><img src="https://img.youtube.com/vi/VPVe31jVV-E/0.jpg" alt="IMAGE ALT TEXT"></a>
+</div>
 
-(VIDEO: FPV + Path travel to 1 wp + all scenarios)
+## Discussion
+The power supply shown in the video can be replaced by a battery circuit design that outputs 5 V to make the FPV transceiver portable. Only the one obstacle and moving obstacle simulation scenarios are tested in real-world turtlebot, and shows it's capable of immediately replanning a new path towards the goal position.  
 
 ## Acknowledgment
 * Programming Robots with ROS
