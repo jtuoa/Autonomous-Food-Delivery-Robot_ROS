@@ -144,7 +144,7 @@ When the robot recognizes the characters transmitted via FPV camera, it will act
   <a href="https://www.youtube.com/watch?v=Sat9whLExqo"><img src="https://img.youtube.com/vi/Sat9whLExqo/0.jpg" alt="IMAGE ALT TEXT"></a>
 </div>
 
-### Video 3: Real time character recognition with moving obstacle
+### Video 3: Real time character recognition with obstacle
 <div align="center">
   <a href="https://www.youtube.com/watch?v=VPVe31jVV-E"><img src="https://img.youtube.com/vi/VPVe31jVV-E/0.jpg" alt="IMAGE ALT TEXT"></a>
 </div>
